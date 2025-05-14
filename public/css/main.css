@@ -1,0 +1,93 @@
+body {
+  background: #f8f9fa;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333;
+}
+main {
+  max-width: 75%;
+  margin: auto;
+}
+header {
+  border-bottom: 1px solid #ced4da;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+p {
+  font-size: 1.4rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+.error {
+  color: #dc3545;
+  font-weight: bold;
+}
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.alert-danger {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
+}
+.alert-success {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.hidden {
+  display: none;
+}
+.pagination {
+  margin-top: 20px;
+}
+.pagination .page-link {
+  padding: 8px 12px;
+  color: #007bff;
+}
+.pagination .active .page-link {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+.ui-autocomplete {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+.dashboard-container {
+  background-color: #feffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-color:#4478bd
+}
+.dashboard-title {
+  color: #4478bd;
+  border-bottom: 2px solid #144b93;
+  padding-bottom: 10px;
+}
+.dashboard-info {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid #1d4e8e;
+  border-radius: 4px;
+}
+.dashboard-info strong {
+  color: #4478bd;
+}

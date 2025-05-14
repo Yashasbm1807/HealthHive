@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{title}} - Health Hive</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.13.2/jquery-ui.min.css">
+  <link rel="stylesheet" href="/public/css/main.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Health Hive</h1>
+    <nav>
+      <a href="/places/browse">Browse Places</a> |
+      <a href="/places/search">Search Places</a>
+    </nav>
+    <hr>
+    {{{body}}}
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js"></script>
+  <script>
+    // Fallback for jQuery
+    if (typeof jQuery === 'undefined') {
+      document.write('<script src="/public/js/jquery.min.js"><\/script>');
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery-ui-dist@1.13.2/jquery-ui.min.js"></script>
+  <script>
+    // Fallback for jQuery UI
+    if (typeof jQuery.ui === 'undefined') {
+      document.write('<script src="/public/js/jquery-ui.min.js"><\/script>');
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
