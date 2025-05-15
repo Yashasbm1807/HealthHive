@@ -1,0 +1,37 @@
+<!-- views/manage-places.hbs -->
+<div class="container">
+  <h1>{{title}}</h1>
+  
+  {{#if success}}
+    <div class="alert alert-success">{{success}}</div>
+  {{/if}}
+  
+  {{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+  {{/if}}
+
+  {{#if places.length}}
+    <div class="places-list">
+      {{#each places}}
+        <div class="place-card">
+          <h3>{{name}}</h3>
+          <p>{{description}}</p>
+          <p><strong>Type:</strong> {{type}}</p>
+          <p><strong>Location:</strong> {{address}}, {{city}}</p>
+          <div class="place-actions">
+            <a href="/manage-places/{{_id}}" class="btn btn-view">View</a>
+            <a href="/manage-places/{{_id}}/edit" class="btn btn-edit">Edit</a>
+            <form action="/manage-places/{{_id}}?_method=DELETE" method="POST" style="display: inline;">
+              <button type="submit" class="btn btn-delete">Delete</button>
+            </form>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="no-places">
+      <p>You haven't added any places yet.</p>
+      <a href="/manage-places/add" class="btn btn-add">Add Your First Place</a>
+    </div>
+  {{/if}}
+</div>

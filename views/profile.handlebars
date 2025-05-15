@@ -1,0 +1,43 @@
+<div class="profile-container">
+  <h1>Your Profile</h1>
+
+  <div class="profile-info">
+    <p><strong>Email:</strong> {{email}}</p>
+    <p><strong>Username:</strong> {{username}}</p>
+  </div>
+
+  {{#if profilePhoto}}
+    <div class="profile-photo-preview">
+      <h4>Current Profile Photo:</h4>
+      <img src="data:image/jpeg;base64,{{profilePhoto}}" alt="Profile Photo">
+    </div>
+  {{/if}}
+
+  <form action="/profile" method="POST" id="profile-form" enctype="multipart/form-data" class="profile-form">
+    <label for="bio">Bio:</label>
+    <textarea name="bio" id="bio" rows="5">{{bio}}</textarea>
+
+    <label for="profilePhoto">Upload Profile Photo:</label>
+    <input type="file" name="profilePhoto" id="profilePhoto" accept="image/*">
+
+    <button type="submit" class="btn-primary">Update Profile</button>
+  </form>
+
+  {{#if error}}
+    <p class="form-error">{{error}}</p>
+  {{/if}}
+
+  {{#if success}}
+    <p class="form-success">{{success}}</p>
+  {{/if}}
+
+  <div class="profile-nav-buttons">
+     <a href="/logout" class="btn-secondary">Logout</a>
+    <a href="/" class="btn-secondary">Home</a>
+   
+    
+    <a href="/manage-places" class="btn-secondary">View My Places</a>
+   
+  
+  </div>
+</div>

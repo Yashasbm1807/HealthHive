@@ -1,0 +1,97 @@
+<div class="places-container">
+  <h1>Browse Wellness Places</h1>
+  
+  {{#if success}}
+    <div class="alert alert-success">{{success}}</div>
+  {{/if}}
+  {{#if error}}
+    <div class="alert alert-error">{{error}}</div>
+  {{/if}}
+
+  {{#if user}}
+    <a href="/manage-places/add" class="btn btn-primary">Add New Place</a>
+  {{/if}}
+    {{!-- <a href="/places/search" class="btn btn-primary-1">Search</a>
+    <a href="/" class="btn btn-primary-2">Home</a> --}}
+  <div class="places-grid">
+    {{#each places}}
+      <div class="place-card">
+        <a href="/places/{{this._id}}">
+          <h3>{{this.name}}</h3>
+          <p class="place-type">{{this.type}}</p>
+          <p class="place-address">{{this.address}}, {{this.city}}</p>
+          <div class="place-meta">
+            <span>{{this.servicesOffered.length}} services</span>
+            <span>Added on {{formatDate this.dateAdded}}</span>
+          </div>
+        </a>
+      </div>
+    {{else}}
+      <p>No places found. Be the first to add one!</p>
+    {{/each}}
+  </div>
+</div>
+
+<style>
+  .places-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  .places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  .place-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    transition: transform 0.2s;
+  }
+  .place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .place-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .place-type {
+    color: #666;
+    font-style: italic;
+  }
+  .place-address {
+    color: #333;
+    margin: 5px 0;
+  }
+  .place-meta {
+    font-size: 0.9em;
+    color: #888;
+    display: flex;
+    justify-content: space-between;
+  }
+  .alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  .alert-success {
+    background: #dff0d8;
+    color: #3c763d;
+  }
+  .alert-error {
+    background: #f2dede;
+    color: #a94442;
+  }
+
+</style>

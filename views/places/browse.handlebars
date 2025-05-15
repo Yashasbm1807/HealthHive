@@ -1,0 +1,131 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="wellness-browse-header">
+      <h2>Browse All Wellness Places</h2>
+      {{#if user}}
+        <a href="/manage-places/add" class="btn btn-success">
+          <i class="fas fa-plus"></i> Add New Place
+        </a>
+      {{/if}}
+    <a href="/places/search" class="btn btn-primary-1">Search</a>
+    <a href="/" class="btn btn-primary-2">Home</a>
+    </div>
+
+    {{#if places}}
+      <div class="wellness-places-list">
+        {{#each places}}
+          <div class="wellness-card card mb-3">
+            <div class="card-body">
+              <h3 class="card-title">
+                <a href="/places/{{placeId}}">{{name}}</a>
+                {{#if (gte averageRating 4)}}
+                  <span class="badge bg-success ms-2">Top Rated</span>
+                {{/if}}
+              </h3>
+              <p class="card-text">
+                <i class="fas fa-tag"></i> {{type}} 
+                <span class="ms-3"><i class="fas fa-map-marker-alt"></i> {{city}}</span>
+              </p>
+              <div class="place-meta">
+                <span class="rating">
+                  <i class="fas fa-star"></i> {{averageRating}} ({{reviewCount}} reviews)
+                </span>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+
+      <nav aria-label="Pagination" class="mt-4">
+        <ul class="pagination justify-content-center">
+          {{#if hasPrev}}
+            <li class="page-item">
+              <a href="/places/browse?page={{subtract currentPage 1}}" class="page-link">
+                <i class="fas fa-chevron-left"></i> Previous
+              </a>
+            </li>
+          {{/if}}
+          
+          {{#each (range 1 totalPages)}}
+            <li class="page-item {{#if (eq this ../currentPage)}}active{{/if}}">
+              <a href="/places/browse?page={{this}}" class="page-link">{{this}}</a>
+            </li>
+          {{/each}}
+          
+          {{#if hasNext}}
+            <li class="page-item">
+              <a href="/places/browse?page={{add currentPage 1}}" class="page-link">
+                Next <i class="fas fa-chevron-right"></i>
+              </a>
+            </li>
+          {{/if}}
+        </ul>
+      </nav>
+    {{else}}
+      <div class="alert alert-info">
+        <i class="fas fa-info-circle"></i> No wellness places found. 
+        {{#if user}}
+          <a href="/manage-places/add">Be the first to add one!</a>
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+<style>
+  .wellness-browse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-top: 10px;
+  }
+  
+  .wellness-card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+  }
+  
+  .wellness-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .rating {
+    color: #ffc107;
+    font-weight: bold;
+  }
+  
+  .badge.bg-success {
+    font-size: 0.8rem;
+    vertical-align: middle;
+  }
+  
+  .page-item.active .page-link {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .page-link {
+    color: #28a745;
+  }
+  .btn-primary-1 {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #04c1f1;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+.btn-primary-2 {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #050708;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+</style>

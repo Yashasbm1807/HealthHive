@@ -1,0 +1,33 @@
+<div class="auth-container">
+  <img src="/public/images/health_hive_logo.png" alt="Health Hive Logo" class="auth-logo">
+
+  <h1>Register</h1>
+
+  {{#if error}}
+    <p class="form-error">{{error}}</p>
+  {{/if}}
+
+  {{#if success}}
+    <p class="form-success">{{success}}</p>
+  {{/if}}
+
+  <form action="/register" method="POST" id="register-form" class="auth-form">
+    <label for="email">Email:</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="username">Username:</label>
+    <input type="text" name="username" id="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" required>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" name="confirmPassword" id="confirmPassword" required>
+
+    <button type="submit" class="btn-primary">Register</button>
+  </form>
+
+  <div class="auth-links">
+    <a href="/" class="btn-secondary">Back to Home</a>
+  </div>
+</div>

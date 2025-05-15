@@ -1,0 +1,77 @@
+ {{#if showHeader}}
+  <header class="top-header">
+    <div class="header-content">
+      <img src="/public/images/health_hive_logo.png" alt="Health Hive Logo" class="logo">
+      <div class="auth-buttons">
+        {{#if user}}
+          <a href="/profile" class="header-btn">Go to Profile</a>
+        {{else}}
+          <a href="/login" class="header-btn">Login</a>
+          <a href="/register" class="header-btn">Sign Up</a>
+        {{/if}}
+      </div>
+    </div>
+  </header>
+{{/if}}
+
+<main style="padding-top: 160px;">
+  <h1 style="text-align: center; font-size: 2rem; margin-bottom: 40px; color: #2e8b57;">Welcome to Health Hive</h1>
+
+  <div class="feature-section">
+    <div class="feature-image">
+      <img src="/public/images/meditation.jpeg" class="medi_image" alt="Meditation" />
+    </div>
+    <div class="feature-text">
+      <h2 class="medi_line">Mindful Living Starts Here</h2>
+      <p style="margin-top: 15px;">
+        Meditation isn’t about becoming someone new; it’s about becoming fully present with who you already are. 
+        In stillness, we uncover strength - a quiet clarity that helps us navigate the noise of everyday life. 
+        Just a few minutes of mindful breathing can reduce anxiety, improve focus, and create space between 
+        stimulus and response. By returning to the rhythm of our breath, we learn to pause, observe without 
+        judgment, and move through life with greater calm and intention.
+      </p>
+    </div>
+  </div>
+</main>
+
+<section class="info-centered">
+  <div class="center-text">
+    <h2>Strength Through Movement</h2>
+    <p>
+      Regular gym workouts aren't just about building muscles - they empower your entire lifestyle. At Health Hive, we help you find the right fitness environment through real reviews and user stories. Whether you're chasing endurance, flexibility, or just a daily wellness ritual, the gym can be a space for transformation, discipline, and self-confidence. Take the first step toward your healthiest self.
+    </p>
+  </div>
+  <div class="center-image">
+    <img src="/public/images/gym_image.jpg" alt="Gym Training" class="gym-centered-image">
+  </div>
+</section>
+
+<section class="info-section" style="margin-top: 100px;">
+  <h2 class="section-heading">Energy in Motion</h2>
+  <p class="info-text">
+    Dance fitness and functional training classes aren't just workouts - they’re a celebration of movement, rhythm, and community. Whether you're drawn to the beats of Zumba, the precision of HIIT, or the fluidity of functional bodyweight routines, these classes offer a fun and dynamic way to stay active. At Health Hive, we bring you closer to the classes that uplift your spirit, energize your body, and fit your unique lifestyle. Embrace the joy of movement and make your fitness journey something you look forward to every day.
+  </p>
+  <img src="/public/images/fitness_class.jpg" alt="Aerobics Class" class="medi_image">
+</section>
+
+<div class="about-section">
+  <h2>About Health Hive</h2>
+  <p>
+    Health Hive is your trusted companion in the journey to holistic wellness. We bring together authentic community reviews and real-world insights to help users discover gyms, yoga studios, spas, meditation centers, and holistic clinics that truly resonate with their needs. Whether you're seeking peace of mind, physical strength, or natural healing, our platform empowers you to make informed decisions confidently.
+  </p>
+  <p>
+    Our mission is to eliminate the guesswork from wellness choices. Through transparent feedback, service descriptions, and verified user experiences, Health Hive connects people with places that align with their health goals and values. No more random browsing or uninformed bookings-just clarity, community, and convenience.
+  </p>
+  <p>
+    As a platform built by wellness enthusiasts for wellness seekers, Health Hive is more than a directory-it's a movement. One that values self-care, accessibility, and a supportive ecosystem for well-being. Join the hive. Feel better, live stronger, and thrive together.
+  </p>
+</div>
+
+
+
+{{#if user}}
+  <div class="home-action-buttons">
+    <a href="/manage-places/add" class="big-button">Add a Place</a>
+    <a href="/places/browse" class="big-button">View All Places</a>
+  </div>
+{{/if}}

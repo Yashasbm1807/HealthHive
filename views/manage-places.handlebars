@@ -1,0 +1,54 @@
+
+  <div class="container mt-4">
+    <h1>{{title}}</h1>
+    
+    {{#if success}}
+      <div class="alert alert-success">{{success}}</div>
+    {{/if}}
+    
+    {{#if error}}
+      <div class="alert alert-danger">{{error}}</div>
+    {{/if}}
+
+    {{#if places.length}}
+      <div class="row">
+        {{#each places}}
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{name}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{type}}</h6>
+                <p class="card-text">{{description}}</p>
+                <p class="card-text"><small class="text-muted">{{address}}, {{city}}</small></p>
+                <div class="d-flex justify-content-between">
+                  <a href="/manage-places/{{_id}}" class="btn btn-sm btn-primary">View</a>
+                  {{!-- <a href="/manage-places/{{_id}}/edit" class="btn btn-sm btn-secondary">Edit</a>
+                  <form action="/manage-places/{{_id}}?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                  </form> --}}
+                </div>
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <div class="alert alert-info">
+        You haven't added any places yet.
+        <a href="/manage-places/add" class="alert-link">Add your first place</a>
+      </div>
+    {{/if}}
+    <a href="/profile" class="btn btn-primary">Back</a>
+  </div>
+
+  <style>
+  .btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+</style>

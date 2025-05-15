@@ -1,0 +1,144 @@
+<div class="place-detail-container">
+  {{#if success}}
+    <div class="alert alert-success">{{success}}</div>
+  {{/if}}
+  {{#if error}}
+    <div class="alert alert-error">{{error}}</div>
+  {{/if}}
+
+  <h1>{{place.name}}</h1>
+  
+  <div class="place-meta">
+    <span class="place-type">{{place.type}}</span>
+    <span class="place-date">Added on {{formatDate place.dateAdded}}</span>
+  </div>
+
+  <div class="place-address">
+    <p>{{place.address}}, {{place.city}}</p>
+  </div>
+
+  <div class="place-description">
+    <p>{{place.description}}</p>
+  </div>
+
+  <div class="place-content">
+    <div class="place-services">
+      <h3>Services Offered</h3>
+      <ul>
+        {{#each place.servicesOffered}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class="place-tags">
+      <h3>Tags</h3>
+      <div class="tags-container">
+        {{#each place.tags}}
+          <span class="tag">{{this}}</span>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="place-stats">
+      <p>Average Rating: {{place.averageRating}} ★</p>
+      <p>Review Count: {{place.reviewCount}}</p>
+    </div>
+  </div>
+
+  <div class="place-actions">
+    <a href="/places/browse" class="btn-back">← Back to all places</a>
+    {{#if user}}
+      {{#if (eq user._id (toString place.addedBy))}}
+        <a href="/manage-places/{{place._id}}/edit" class="btn-edit">Edit</a>
+        <form action="/manage-places/{{place._id}}?_method=DELETE" method="POST" class="delete-form">
+          <button type="submit" class="btn-delete" onclick="return confirm('Are you sure you want to delete this place?')">
+            Delete
+          </button>
+        </form>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>
+
+<style>
+  .place-detail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  .place-meta {
+    margin: 15px 0;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+  }
+  .place-address {
+    margin: 15px 0;
+    font-size: 1.1em;
+  }
+  .place-description {
+    margin: 20px 0;
+    line-height: 1.6;
+  }
+  .place-services ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  .place-services li {
+    padding: 5px 0;
+  }
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .tag {
+    background-color: #e0e0e0;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+  }
+  .place-stats {
+    margin: 20px 0;
+    font-size: 1.1em;
+  }
+  .place-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+  }
+  .btn-back, .btn-edit, .btn-delete {
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  .btn-back {
+    background: #f0f0f0;
+    color: #333;
+  }
+  .btn-edit {
+    background: #4CAF50;
+    color: white;
+  }
+  .btn-delete {
+    background: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+  }
+  .alert-success {
+    background: #dff0d8;
+    color: #3c763d;
+  }
+  .alert-error {
+    background: #f2dede;
+    color: #a94442;
+  }
+</style>
