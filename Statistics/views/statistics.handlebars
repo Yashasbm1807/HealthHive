@@ -1,0 +1,131 @@
+<div class="statistics-container">
+  <h1 class="text-3xl font-bold text-green-600 mb-8 text-center">Health Hive Statistics</h1>
+
+  {{#if errorMessage}}
+    <div class="bg-red-100 text-red-700 p-4 rounded mb-8">{{errorMessage}}</div>
+  {{/if}}
+
+  <!-- Summary Cards -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold text-green-600">Total Users</h3>
+      <p class="text-3xl font-bold text-gray-800">{{stats.totalUsers}}</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold text-green-600">Total Health Places</h3>
+      <p class="text-3xl font-bold text-gray-800">{{stats.totalPlaces}}</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow-md">
+      <h3 class="text-xl font-semibold text-green-600">Total Reviews</h3>
+      <p class="text-3xl font-bold text-gray-800">{{stats.totalReviews}}</p>
+    </div>
+  </div>
+
+  <!-- Health Places by City -->
+  <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+    <h2 class="text-2xl font-semibold text-green-600 mb-4">Health Places by City</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full table-auto">
+        <thead>
+          <tr class="bg-green-600 text-white">
+            <th class="p-3 text-left">City</th>
+            <th class="p-3 text-left">Number of Health Places</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each stats.placesByCity}}
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">{{this.city}}</td>
+              <td class="p-3">{{this.count}}</td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="2" class="p-3 text-center">No Health Places found.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Health Places by Type -->
+  <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+    <h2 class="text-2xl font-semibold text-green-600 mb-4">Health Places by Type</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full table-auto">
+        <thead>
+          <tr class="bg-green-600 text-white">
+            <th class="p-3 text-left">Type</th>
+            <th class="p-3 text-left">Number of Health Places</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each stats.placesByType}}
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">{{this.type}}</td>
+              <td class="p-3">{{this.count}}</td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="2" class="p-3 text-center">No Health Places found.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Most Reviewed Health Places -->
+  <div class="bg-white p-6 rounded-lg shadow-md mb-12">
+    <h2 class="text-2xl font-semibold text-green-600 mb-4">Most Reviewed Health Places</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full table-auto">
+        <thead>
+          <tr class="bg-green-600 text-white">
+            <th class="p-3 text-left">Place Name</th>
+            <th class="p-3 text-left">Review Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each stats.mostReviewedPlaces}}
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">{{this.name}}</td>
+              <td class="p-3">{{this.reviewCount}}</td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="2" class="p-3 text-center">No reviews found.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Top-Rated Health Places -->
+  <div class="bg-white p-6 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold text-green-600 mb-4">Top-Rated Health Places</h2>
+    <div class="overflow-x-auto">
+      <table class="w-full table-auto">
+        <thead>
+          <tr class="bg-green-600 text-white">
+            <th class="p-3 text-left">Place Name</th>
+            <th class="p-3 text-left">Average Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each stats.topRatedPlaces}}
+            <tr class="border-b hover:bg-gray-50">
+              <td class="p-3">{{this.name}}</td>
+              <td class="p-3">{{this.averageRating}} ★</td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan="2" class="p-3 text-center">No rated Health Places found.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
